@@ -6,17 +6,50 @@ require_once ROOT . 'inc' . DIRECTORY_SEPARATOR . 'ini.php';
 if($argc == 1)
 {
 	# NO ARGS
-	echo kTerm::colorString('Usage:','purple') . ' ' . kTerm::colorString(basename(__FILE__) . " <file.json>",'light_grey') . "\n\n";
-}elseif($argc > 1 && is_file(realpath($argv[1])))
+	showUsage();
+	echo "\n";
+	return 1;
+}
+
+if($argc > 1)
 {
-	# CORRECT
-	$jsonFile = $argv[1];
-	$varLib   = new aiVariableLibrary($jsonFile);
-	echo $varLib;
-}else
+	if($argv[1] == "-h" || $argv[1] == "--help")
+	{
+		# HELP
+		showUsage();
+		echo "\n";
+		echo kTerm::colorString('Options:','purple') . "\n";
+		echo kTerm::colorString("-h,--help\tDisplay help",'light_grey') . "\n";
+		return 0;
+	}
+
+	if(strtolower($argv[1]) === "template")
+	{
+		# TEMPLATE
+		echo new aiVariableLibraryTemplate();
+		return 0;
+	}
+
+	if(is_file(realpath($argv[1])))
+	{
+		# CORRECT
+		$jsonFile = $argv[1];
+		$varLib   = new aiVariableLibrary($jsonFile);
+		echo $varLib;
+		return 0;
+	}else
+	{
+		# INVALID FILE
+		echo kTerm::colorString('Invalid input file','red') . "\n\n";
+		return 1;
+	}
+}
+
+function showUsage()
 {
-	# INVALID FILE
-	echo kTerm::colorString('Invalid input file','red') . "\n\n";
-	return 0;
+	echo kTerm::colorString('Usage:','purple') . "\t";
+	echo kTerm::colorString(basename(__FILE__) . " -h,--help",'light_grey') . "\n";
+	echo kTerm::colorString("\t" . basename(__FILE__) . " <jsonFile> > <xmlFile",'light_grey') . "\n";
+	echo kTerm::colorString("\t" . basename(__FILE__) . " template > <jsonFile>",'light_grey') . "\n";
 }
 ?>
