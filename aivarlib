@@ -1,0 +1,22 @@
+#!/usr/bin/php
+<?php
+define('ROOT',dirname(__FILE__) . DIRECTORY_SEPARATOR);
+require_once ROOT . 'inc' . DIRECTORY_SEPARATOR . 'ini.php';
+
+if($argc == 1)
+{
+	# NO ARGS
+	echo kTerm::colorString('Usage:','purple') . ' ' . kTerm::colorString(basename(__FILE__) . " <file.json>",'light_grey') . "\n\n";
+}elseif($argc > 1 && is_file(realpath($argv[1])))
+{
+	# CORRECT
+	$jsonFile = $argv[1];
+	$varLib   = new aiVariableLibrary($jsonFile);
+	echo $varLib;
+}else
+{
+	# INVALID FILE
+	echo kTerm::colorString('Invalid input file','red') . "\n\n";
+	return 0;
+}
+?>
