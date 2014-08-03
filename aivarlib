@@ -49,7 +49,7 @@ function showUsage()
 {
 	echo kTerm::colorString('Usage:','purple') . "\t";
 	echo kTerm::colorString(basename(__FILE__) . " -h,--help",'light_grey') . "\n";
-	echo kTerm::colorString("\t" . basename(__FILE__) . " <jsonFile> > <xmlFile",'light_grey') . "\n";
+	echo kTerm::colorString("\t" . basename(__FILE__) . " <jsonFile> > <xmlFile>",'light_grey') . "\n";
 	echo kTerm::colorString("\t" . basename(__FILE__) . " template > <jsonFile>",'light_grey') . "\n";
 }
 ?>
