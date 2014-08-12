@@ -1,4 +1,8 @@
-# Karbon Industries
-[karbonindustri.es](http://karbonindustri.es "Karbon Industries website")
-**author:** Shammel Lee
-Sun Aug  3 03:26:00 EDT 2014
+# aivarlib
+Work with Adobe Illustrator Variables in JSON format
+
+[karbonindustri.es][karbonSite]
+**author:** [Shammel Lee][shammelGithub]
+
+[karbonSite]: http://karbonindustri.es
+[shammelGithub]: https://github.com/shammellee
