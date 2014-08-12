@@ -1,0 +1,3 @@
+[submodule "inc/karbon/kUtils"]
+	path = inc/karbon/kUtils
+	url = git@github.com:shammellee/kutils.git
