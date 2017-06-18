@@ -27,7 +27,7 @@ class aiVariableSet
 
 			foreach($vars as $v)
 			{
-				if($v->instances && $v->instances > 1)
+				if(isset($v->instances) && $v->instances > 1)
 				{
 					for($i = 0;$i < $v->instances;)
 					{
@@ -80,4 +80,4 @@ class aiVariableSet
 		return sprintf("%s%s%s%s%s%s%s%s",$this->_variableSetStart,$this->_variableStart,$vars,$this->_variableEnd,$this->_dataSetStart,$dataSets,$this->_dataSetEnd,$this->_variableSetEnd);
 	}
 }
-?>
+
